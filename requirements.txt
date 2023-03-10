@@ -1,7 +1,5 @@
 scikit-learn
-pandas
-streamlit
-numpy 
+streamlit 
 tensorflow
 mlxtend
 ploty
