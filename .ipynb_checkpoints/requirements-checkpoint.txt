@@ -4,3 +4,4 @@ tensorflow-cpu
 mlxtend
 pandas
 plotly == 5.13.1
+statsmodels
