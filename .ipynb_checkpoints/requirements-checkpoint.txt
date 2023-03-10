@@ -1,5 +1,6 @@
 scikit-learn
 streamlit 
-tensorflow
+tensorflow-cpu
 mlxtend
-ploty
+pandas
+plotly == 5.13.1
