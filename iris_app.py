@@ -9,7 +9,7 @@ import streamlit as st
 
 
 from sklearn.model_selection import train_test_split
-
+from sklearn.metrics import confusion_matrix
 
 #import seaborn as sns
 import matplotlib.pyplot as plt
@@ -273,6 +273,21 @@ with container5:
                 
                 
                 st.pyplot(fig_dr_plot)
+                
+            y_test_pred = my_model.predict(X_test).argmax(axis=1)
+            
+            conf_mat = confusion_matrix(y_test.argmax(axis=1),y_test_pred)
+            
+            conf_mat = conf_mat/(conf_mat.sum(axis=1).reshape(-1,1))
+            
+            conf_mat = conf_mat.round(2)
+            
+            conf_mat = DataFrame(conf_mat,columns=iris_data.target_names,index=iris_data.target_names)
+            
+            conf_mat_plot = px.imshow(conf_mat,color_continuous_scale='blues',text_auto=True,zmax=1.0,
+                                      zmin=0.0,title='Test data confusion matrix')
+            
+            st.plotly_chart(conf_mat_plot)
             
             
            
